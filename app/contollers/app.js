@@ -25,7 +25,7 @@ var appController=function(server,users){
 	server.get('/app', isntLoggedIn, function (req, res) {
 		//hacemos una query de todos los posts para posteriormente pasarla al html
 		//populate se puede omitir pero en este caso lo ocupamos para sacar los datos del usuario asociado al post y no solo el id
-		Post.find({}).populate('user').exec(function(err,posts){
+		Post.find({}).sort( { _id : -1 } ).populate('user').exec(function(err,posts){
 			debugger;
 			//utilizamos underscore para mapear el resultado de la query a json
 			var postsAsJson= _.map(posts,function(posts){
