@@ -7,7 +7,7 @@ var express = require('express.io'),
 var url = require('url');
 
 var RedisStore = require('connect-redis')(express);
-//Heroku Redis 2 go support
+
 //var RedisStore = require('redis-url').connect(process.env.REDISTOGO_URL);
 
 
@@ -26,6 +26,8 @@ server.set('views', './app/views');
 
 // Agregamos post, cookie y sessiones
 server.configure(function() {
+
+	//Heroku add suport Redistogo 
 	var redisUrl = url.parse(process.env.REDISTOGO_URL);
  	var redisAuth = redisUrl.auth.split(':');
 	// Carga archivos estaticos
@@ -35,6 +37,7 @@ server.configure(function() {
 	server.use(express.cookieParser());
 	server.use(express.bodyParser());
 
+	//Heroku Redis 2 go support
 	server.use(express.session({
 		secret : "lolcatz",
 		store  : new RedisStore({
