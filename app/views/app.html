@@ -7,7 +7,11 @@
 {% endblock %}
 
 {% block content %}
-
+	<style type="text/css">
+	ul#posts li a{
+		font-size: 11px;
+	}
+	</style>
 	<h2>Bienvenido {{user.username}}</h2>
 	<a href="/log-out">Log Out</a>
 	<form method="POST" action="/app/create-post">
@@ -17,7 +21,11 @@
 	<div >
 		<ul id="posts">
 		{% for post in posts %}
-		<li>{{post.content}}-{{post.user.username}}</li>
+		<li>
+			<img src="{{post.user.twitter._json.profile_image_url}}" alt="Avatar">
+			{{post.content}}-
+			<a target="_blank" href="https://twitter.com/{{post.user.username}}">@{{post.user.username}}</a>
+		</li>
 		{% endfor %}
 		</ul>
 	</div>
