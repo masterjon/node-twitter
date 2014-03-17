@@ -27,7 +27,7 @@ server.set('views', './app/views');
 // Agregamos post, cookie y sessiones
 server.configure(function() {
 	var redisUrl = url.parse(process.env.REDISTOGO_URL);
- 	var redisAuth = redisUrl.auth.split(‘:’);
+ 	var redisAuth = redisUrl.auth.split(':');
 	// Carga archivos estaticos
 	server.use(express.static('./public'));
 
