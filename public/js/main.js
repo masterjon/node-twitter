@@ -25,4 +25,13 @@ $(document).ready(function(){
 		debugger;
 		$("#posts").append('<li>'+data.content+'-'+data.user.username+'</li>');
 	})
+
+
+
+	$("textarea").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+        $("form").submit();
+    }
+});
 });
