@@ -33,8 +33,6 @@ $(document).ready(function(){
 		$("#posts").prepend('<li class="media list-group-item"><a href="https://twitter.com/'+data.user.username+'" class="pull-left thumbnail"><img class="media-object" src="'+data.user.twitter._json.profile_image_url+'" alt="Avatar"></a><div class="media-body"><h4 class="media-heading"><a target="_blank" href="https://twitter.com/'+data.user.username+'"><span class="glyphicon glyphicon-user"></span> @'+data.user.username+'</a></h4><p>'+data.content+'</p></div></li>');
 	})
 
-
-
 	$("textarea").keypress(function(event) {
 	    if (event.which == 13) {
 	        event.preventDefault();
