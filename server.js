@@ -5,12 +5,8 @@ var express = require('express.io'),
 	 passport=require('passport');
 
 var url = require('url');
-
 var RedisStore = require('connect-redis')(express);
-
 //var RedisStore = require('redis-url').connect(process.env.REDISTOGO_URL);
-
-
 
 var server = express();
 //for heroku deployment

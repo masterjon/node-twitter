@@ -26,12 +26,12 @@ var appController=function(server,users){
 		//hacemos una query de todos los posts para posteriormente pasarla al html
 		//populate se puede omitir pero en este caso lo ocupamos para sacar los datos del usuario asociado al post y no solo el id
 		Post.find({}).sort( { _id : -1 } ).populate('user').exec(function(err,posts){
-			debugger;
+			//debugger;
 			//utilizamos underscore para mapear el resultado de la query a json
 			var postsAsJson= _.map(posts,function(posts){
 				return posts.toJSON();
 			});
-			debugger;
+			//debugger;
 			//renderisamos la vista html de app y le pasamos como variables user y users
 		    res.render('app', {
 				user : req.session.passport.user, //en session.passport se guardan los datos del login 
@@ -62,8 +62,8 @@ var appController=function(server,users){
 				content:post.content,
 				user:req.user.toJSON()
 			})
-
-			res.redirect('/app'); //si no ,redireccionamos a app
+			res.send('Success');
+			//res.redirect('/app'); //si no ,redireccionamos a app
 		})
 		
 	})

@@ -13,9 +13,10 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand pull-left" href="/">Bienvenido {{user.username}} </a>
+          <a class="navbar-brand pull-left" href="/">Bienvenido(a) {{user.username}} </a>
           	<a class="pull-left" href="/"><img class="img-circle" src="{{user._json.profile_image_url}}" alt="Avatar"></a>
           	<div id="data-count" data-item-count=""></div>
+          	<div id="data-user" data-username="{{user.username}}"></div>
         </div>
         <div class="navbar-collapse collapse">
           <div class="navbar-form navbar-right" role="form">
@@ -48,9 +49,9 @@ textarea{
 	</div>
 	<div class="clearfix">
 		<div class="col-xs-12 col-sm-6">
-			<form method="POST" action="/app/create-post">
+			<form id="send-form" method="POST" action="/app/create-post">
 				<textarea class="form-control" rows="3" name="content"></textarea>
-				<button type="submit" class="btn btn-primary pull-right">Enviar <span class="glyphicon glyphicon-send"></button>
+				<button id="enviar" type="submit" class="btn btn-primary pull-right">Enviar <span class="glyphicon glyphicon-send"></button>
 			</form>
 		</div>
 	</div>

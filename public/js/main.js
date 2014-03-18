@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	window.io = io.connect();
 
 	io.on('connect', function(socket){
@@ -7,7 +8,9 @@ $(document).ready(function(){
 	});
 
 	io.on('saludo', function(data){
+
 		console.log(data);
+
 	});
 
 	io.on('log-in', function(data){
@@ -24,13 +27,38 @@ $(document).ready(function(){
 	io.on('post',function(data){
 		//debugger;
 		var count=$("#data-count").data("item-count");
+		var me=$("#data-user").data("username");
 		if (!count){
 			count=0;
 		}
-		count++;
-		$("#data-count").data("item-count",count);
-		$("title").html('('+count+') Feed');
-		$("#posts").prepend('<li class="media list-group-item"><a href="https://twitter.com/'+data.user.username+'" class="pull-left thumbnail"><img class="media-object" src="'+data.user.twitter._json.profile_image_url+'" alt="Avatar"></a><div class="media-body"><h4 class="media-heading"><a target="_blank" href="https://twitter.com/'+data.user.username+'"><span class="glyphicon glyphicon-user"></span> @'+data.user.username+'</a></h4><p>'+data.content+'</p></div></li>');
+		if (me!=data.user.username){
+			count++;
+			$("#data-count").data("item-count",count);
+			$("title").html('('+count+') Feed');
+		}
+		
+		
+		var html='<li class="media list-group-item" style="display:none;"><a href="https://twitter.com/'+data.user.username+'" class="pull-left thumbnail"><img class="media-object" src="'+data.user.twitter._json.profile_image_url+'" alt="Avatar"></a><div class="media-body"><h4 class="media-heading"><a target="_blank" href="https://twitter.com/'+data.user.username+'"><span class="glyphicon glyphicon-user"></span> @'+data.user.username+'</a></h4><p>'+data.content+'</p></div></li>';
+		$(html).prependTo("#posts").fadeIn("slow");
+	})
+	$("#send-form").submit(function(e){ 
+		e.preventDefault();
+		$.ajax("/app/create-post",{
+            data:$("#send-form").serialize(),
+            type:'post',
+            cache:false,
+            beforeSend:function(request){
+               $("#send-form")[0].reset();
+            },
+            success: function(result){
+            	console.log(result);
+                   
+            },
+            error:function(result){
+
+            }
+             
+	    })
 	})
 
 	$("textarea").keypress(function(event) {
