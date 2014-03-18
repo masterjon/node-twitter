@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
-
-
+{% block title %}
+	Feed
+{% endblock  %}
 {% block navbar %}
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -12,8 +13,8 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand pull-left" href="#">Bienvenido {{user.username}} </a>
-          	<a class="pull-left" href="#"><img class="img-circle" src="{{user._json.profile_image_url}}" alt="Avatar"></a>
+          <a class="navbar-brand pull-left" href="/">Bienvenido {{user.username}} </a>
+          	<a class="pull-left" href="/"><img class="img-circle" src="{{user._json.profile_image_url}}" alt="Avatar"></a>
           	<div id="data-count" data-item-count=""></div>
         </div>
         <div class="navbar-collapse collapse">
