@@ -1,8 +1,8 @@
 var express = require('express.io'),
 	logfmt = require("logfmt"),
 	swig = require('swig'),
-	 _ = require('underscore');
-	 //passport=require('passport');
+	 _ = require('underscore'),
+	 passport=require('passport');
 
 var url = require('url');
 
