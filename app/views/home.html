@@ -1,6 +1,34 @@
 {% extends 'layout.html' %}
-
+{% block head %}
+    <link href="css/cover.css" rel="stylesheet">
+{% endblock  %}
 {% block content %}
-    <h2>Bienvenido</h2>
-    <a href="/auth/twitter/"><button class="btn btn-success">Login con Twitter</button></a>
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">Curso de #BackendPro</h3>
+            <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a target="_blank" href="https://twitter.com/IIMasterJonII">Contact</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="inner cover">
+            <h1>Bienvenido</h1>
+             <p class="lead">App ejemplo en NodeJS con uso de Express.io, Redis, Mongoose, Passport, Swig y Underscore. <br/>Deploy en Heroku con RedisToGo y MongoLab</p>
+             <p class="lead">
+                 <a href="/auth/twitter/"><button class="btn btn-success">Login con Twitter</button></a>
+            </p>
+      </div>
+      <div class="mastfoot">
+        <div class="inner">
+          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
 {% endblock %}
