@@ -47,7 +47,7 @@ var appController=function(server,users){
 	server.post('/app/create-post',isntLoggedIn,getUser,function (req,res){
 		//intancioamos nuestro modelo (tenemos un require arriba)
 		var post= new Post({
-			content:req.body.content, //guardamos el mensaje del posrt
+			content:_.escape(req.body.content), //guardamos el mensaje del posrt , antes escapamos el html
 			user:req.user  				//guardamos el usuario que realizo el post (Objeto de tipo usuario definido en models/User)
 		})
 		//guardamos en la BD
