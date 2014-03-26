@@ -6,8 +6,8 @@ var twitterConnection = function (server){
 	console.log('Twitter coneccion ready');
 
 	passport.use(new TwitterStrategy({
-		consumerKey: '7BZPUzFYCUqty5VSxEKCg',
-		consumerSecret: 'f1oFEls3hupAcyJ41KHL6vY70C2RJ47NOOFH7QlBp7E',
+		consumerKey: 'your-consumer-key',
+		consumerSecret: 'your-consumer-secret',
 		callbackURL:'http://node-twitter.herokuapp.com/auth/twitter/callback'
 	},function (token,tokenSecret,profile,done){
 		debugger;
